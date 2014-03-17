@@ -1,0 +1,31 @@
+<h1>Listing Employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 100px;text-align: center;">Name</th>
+      <th style="width: 100px;text-align: center;">Designation</th>
+      <th style="width: 100px;text-align: center;">Company</th>
+      <!-- th></th -->
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emps.each do |emp| %>
+      <tr>
+        <td style="width: 100px;text-align: center;"><%= emp.name %></td>
+        <td style="width: 100px;text-align: center;"><%= emp.designation %></td>
+        <td style="width: 100px;text-align: center;"><%= emp.company %></td>
+        <!-- td style="width: 100px;text-align: center;"><%= link_to 'Show', emp %></td -->
+        <td style="width: 100px;text-align: center;"><%= link_to 'Edit', edit_emp_path(emp) %></td -->
+        <td style="width: 100px;text-align: center;"><%= link_to 'Delete', emp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Emp', new_emp_path %>
